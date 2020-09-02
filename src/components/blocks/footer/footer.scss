@@ -10,6 +10,7 @@
 	height: 100%;
 	width: 100%;
 	&__attack {
+		cursor: pointer;
 		position: absolute;
 		right: 0;
 		background: url("../img/atack-button-bg.png");
@@ -17,8 +18,13 @@
 		background-size: cover;
 		height: 66%;
 		width: 25%;
+		&.cooldawn {
+			cursor: default;
+			background-position: 50% 102.5%;
+		}
 	}
 	&__skill {
+		cursor: pointer;
 		position: absolute;
 		right: 24%;
 		bottom: 37%;

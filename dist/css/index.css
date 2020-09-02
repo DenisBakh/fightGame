@@ -25,6 +25,10 @@ body {
 }
 
 .game-block {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -89,12 +93,12 @@ body {
 .unit {
   position: absolute;
   width: 34%;
-  height: 50%;
+  height: 40%;
   z-index: 5;
 }
 
 .unit__img {
-  background-position: 40% 0%;
+  background-position: 40% 5%;
   width: 100%;
   height: 100%;
   background-repeat: no-repeat;
@@ -103,7 +107,7 @@ body {
 
 .unit__target {
   position: absolute;
-  bottom: 1%;
+  bottom: 13%;
   left: -5%;
   width: 100%;
   height: 28%;
@@ -116,10 +120,10 @@ body {
 .unit__hp {
   position: absolute;
   width: 29%;
-  height: 4%;
+  height: 5%;
   border: 1px solid #0d8900;
   background-color: black;
-  bottom: 7%;
+  bottom: 15%;
   left: 30%;
 }
 
@@ -130,14 +134,25 @@ body {
   background-color: #0d8900;
 }
 
+.unit__attack-effect {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 45%;
+  background-repeat: no-repeat;
+  background-position: 50% 100%;
+  background-size: 100% auto;
+  background-image: url("../img/zombie.png");
+}
+
 .unit_yours {
-  top: 37%;
+  top: 50%;
   left: 6%;
 }
 
 .unit_yours .unit__img {
   background-image: url("../img/thief.png");
-  background-position: 35% 0%;
+  background-position: 35% 2%;
 }
 
 .unit_yours .unit__target {
@@ -145,8 +160,8 @@ body {
 }
 
 .unit_enemys {
-  top: 11%;
-  left: 50%;
+  top: 23%;
+  left: 49%;
 }
 
 .unit_enemys .unit__img {
@@ -155,11 +170,82 @@ body {
 
 .unit_enemys .unit__target {
   background-image: url("../img/unit-current-bg.png");
-  bottom: 1%;
+  bottom: 9%;
   left: 22%;
   background-position: 50% 103%;
 }
 
 .unit_enemys .unit__hp {
   left: 59%;
+}
+
+.unit_enemys.unit_attack .unit__img {
+  -webkit-animation-name: attack;
+          animation-name: attack;
+  -webkit-animation-duration: 600ms;
+          animation-duration: 600ms;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-timing-function: steps(1, start);
+          animation-timing-function: steps(1, start);
+}
+
+.unit_enemys.unit_attack .unit__attack-effect {
+  display: block;
+  -webkit-animation-name: attack-effect;
+          animation-name: attack-effect;
+  -webkit-animation-duration: 600ms;
+          animation-duration: 600ms;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-timing-function: steps(1, start);
+          animation-timing-function: steps(1, start);
+}
+
+@-webkit-keyframes attack {
+  50% {
+    background-position: 50% 25%;
+  }
+
+  100% {
+    background-position: 50% 45%;
+  }
+}
+
+@keyframes attack {
+  50% {
+    background-position: 50% 25%;
+  }
+
+  100% {
+    background-position: 50% 45%;
+  }
+}
+
+@-webkit-keyframes attack-effect {
+  50% {
+    background-position: 50% 80%;
+    bottom: 21%;
+    left: 24%;
+  }
+
+  100% {
+    background-position: 50% 100%;
+    bottom: 15%;
+    left: -10%;
+  }
+}
+
+@keyframes attack-effect {
+  50% {
+    background-position: 50% 80%;
+    bottom: 21%;
+    left: 24%;
+  }
+
+  100% {
+    background-position: 50% 100%;
+    bottom: 15%;
+    left: -10%;
+  }
 }
