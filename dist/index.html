@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/index.css">
+    <title>Главная</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="game-block">
+        <header class="header">
+          <div class="unit-icons">
+            <div class="unit-icons__item unit-icons__item_yours">
+              <div class="unit-icons__ava">
+                <div class="unit-icons__lvl">1</div>
+              </div>
+              <div class="unit-icons__hp">
+                <div class="unit-icons__name">Lord Byron</div>
+                <div class="unit-icons__hp-bar"></div>
+                <div class="unit-icons__hp-numeric"> <span class="unit-icons__hp-remain">100</span>&nbsp;/&nbsp;<span class="unit-icons__hp-total">100</span></div>
+              </div>
+            </div>
+            <div class="unit-icons__item unit-icons__item_enemys">
+              <div class="unit-icons__hp">
+                <div class="unit-icons__name">Маг Сириус</div>
+                <div class="unit-icons__hp-bar"></div>
+                <div class="unit-icons__hp-numeric"> <span class="unit-icons__hp-remain">100</span>&nbsp;/&nbsp;<span class="unit-icons__hp-total">100</span></div>
+              </div>
+              <div class="unit-icons__ava">
+                <div class="unit-icons__lvl">1</div>
+              </div>
+            </div>
+          </div>
+        </header>
+        <main class="main">
+          <div class="main__title">В подземелье ты обратил на себя гнев опаcного мага... Пусть победит сильнейший!</div>
+          <div class="unit unit_yours">
+            <div class="unit__img"></div>
+            <div class="unit__target"></div>
+            <div class="unit__hp">
+              <div class="unit__hp-remained"></div>
+            </div>
+          </div>
+          <div class="unit unit_enemys">
+            <div class="unit__img"></div>
+            <div class="unit__target"></div>
+            <div class="unit__hp">
+              <div class="unit__hp-remained"></div>
+            </div>
+          </div>
+        </main>
+        <footer class="footer">
+          <div class="footer-button">
+            <div class="footer-button__attack"></div>
+            <div class="footer-button__skill"></div>
+          </div>
+        </footer>
+      </div>
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <!-- jquery-->
+    <script src="js/common.js"></script>
+    <script src="js/index.js"></script>
+  </body>
+</html>

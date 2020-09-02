@@ -1,0 +1,165 @@
+body {
+  margin: 0 auto;
+  max-width: 480px;
+  min-width: 128px;
+  background-color: #010000;
+}
+
+.wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  min-height: 100vh;
+  background-color: black;
+  position: relative;
+}
+
+.game-block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  margin: 0 auto;
+  background: url("../img/cemetery.jpg");
+  background-size: 146% auto;
+  background-position: 50% 6%;
+  position: relative;
+}
+
+.game-block:after {
+  content: "";
+  position: absolute;
+  display: block;
+  height: 6px;
+  width: 100%;
+  background: url("../img/battlefield-sep-bg.png");
+  bottom: 0;
+}
+
+.game-block::before {
+  content: "";
+  position: absolute;
+  display: block;
+  height: 6px;
+  width: 100%;
+  background: url("../img/battlefield-sep-bg.png");
+  top: 0;
+}
+
+.main {
+  padding-bottom: 86%;
+  position: relative;
+  width: 100%;
+}
+
+.main__title {
+  position: absolute;
+  top: 4.5%;
+  left: 50%;
+  width: 68%;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+  color: #aeaeae;
+  font-size: 1.2rem;
+  line-height: 1.166;
+  text-align: center;
+}
+
+.unit {
+  position: absolute;
+  width: 34%;
+  height: 50%;
+  z-index: 5;
+}
+
+.unit__img {
+  background-position: 40% 0%;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: 151% auto;
+}
+
+.unit__target {
+  position: absolute;
+  bottom: 1%;
+  left: -5%;
+  width: 100%;
+  height: 28%;
+  background-repeat: no-repeat;
+  background-position: 50% 18%;
+  background-size: 65% auto;
+  z-index: -1;
+}
+
+.unit__hp {
+  position: absolute;
+  width: 29%;
+  height: 4%;
+  border: 1px solid #0d8900;
+  background-color: black;
+  bottom: 7%;
+  left: 30%;
+}
+
+.unit__hp-remained {
+  width: 100%;
+  height: 100%;
+  border: 1px solid black;
+  background-color: #0d8900;
+}
+
+.unit_yours {
+  top: 37%;
+  left: 6%;
+}
+
+.unit_yours .unit__img {
+  background-image: url("../img/thief.png");
+  background-position: 35% 0%;
+}
+
+.unit_yours .unit__target {
+  background-image: url("../img/unit-current-bg.png");
+}
+
+.unit_enemys {
+  top: 11%;
+  left: 50%;
+}
+
+.unit_enemys .unit__img {
+  background-image: url("../img/zombie.png");
+}
+
+.unit_enemys .unit__target {
+  background-image: url("../img/unit-current-bg.png");
+  bottom: 1%;
+  left: 22%;
+  background-position: 50% 103%;
+}
+
+.unit_enemys .unit__hp {
+  left: 59%;
+}

@@ -1,0 +1,39 @@
+include ../../components/blocks/header/header.pug
+include ../../components/blocks/footer/footer.pug
+
+doctype html
+html(lang="ru")
+	head
+		meta(charset='UTF-8')
+		meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0')
+		//<meta name="viewport" content="width=device-width, initial-scale=1">
+		link(rel="icon" type="image/x-icon" href="img/favicon.ico")
+		link(rel="stylesheet", href="css/common.css")
+		link(rel="stylesheet", href="css/index.css")
+		title='Главная'
+	body
+		.wrapper
+			.game-block
+				+header()
+				main.main
+					.main__title В подземелье ты обратил на себя гнев опаcного мага... Пусть победит сильнейший!
+					.unit.unit_yours
+						.unit__img
+						.unit__target
+						.unit__hp
+							.unit__hp-remained
+					.unit.unit_enemys
+						.unit__img
+						.unit__target
+						.unit__hp
+							.unit__hp-remained
+					
+				+footer()
+		
+		script(src='js/jquery.min.js')
+		// jquery
+		script(src='js/common.js')
+		script(src='js/index.js')
+
+
+

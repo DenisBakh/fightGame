@@ -1,0 +1,32 @@
+/*===================FOOTER============================================*/
+.footer {
+	padding-bottom: 42%;
+	position: relative;
+	width: 100%;
+}
+
+.footer-button {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	&__attack {
+		position: absolute;
+		right: 0;
+		background: url("../img/atack-button-bg.png");
+		background-repeat: no-repeat;
+		background-size: cover;
+		height: 66%;
+		width: 25%;
+	}
+	&__skill {
+		position: absolute;
+		right: 24%;
+		bottom: 37%;
+		background: url("../img/skills.png");
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: 50% 30.3%;
+		height: 34%;
+		width: 14%;
+	}
+}

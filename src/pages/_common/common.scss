@@ -1,0 +1,24 @@
+@import "src/components/_common/fonts.scss";
+@import "src/components/_common/vars.scss";
+
+@import "src/components/_common/mixins.scss";
+@import "src/components/_common/reset.scss";
+
+@import "src/components/blocks/footer/footer.scss";
+@import "src/components/blocks/header/header.scss";
+
+//===============================Common.scss
+
+.ibg > img {
+	display: none;
+}
+
+.container {
+	max-width: 480px;
+	//padding: 0 20px;
+	margin: 0 auto;
+	overflow: hidden;
+	@media (max-width: 430px) {
+		padding: 0 10px;
+	}
+}

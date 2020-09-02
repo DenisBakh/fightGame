@@ -1,0 +1,347 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: "Exo2";
+  src: url("../fonts/Exo2.0-Thin.woff") format("woff"), url("../fonts/Exo2.0-Thin.woff2") format("woff2");
+  font-weight: 100;
+  font-style: normal;
+}
+
+/*Обнуление*/
+
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+:focus,
+:active {
+  outline: none;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+nav,
+footer,
+header,
+aside {
+  display: block;
+}
+
+html,
+body {
+  display: block;
+  min-width: 320px;
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  width: 100%;
+  line-height: 1;
+  font-size: 14px;
+}
+
+body {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  height: 100%;
+  margin: 0;
+  background-blend-mode: multiply;
+}
+
+input,
+button,
+textarea {
+  font-family: "Trebuchet MS", Arial, sans-serif;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/*--------------------*/
+
+/*===================FOOTER============================================*/
+
+.footer {
+  padding-bottom: 42%;
+  position: relative;
+  width: 100%;
+}
+
+.footer-button {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.footer-button__attack {
+  position: absolute;
+  right: 0;
+  background: url("../img/atack-button-bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 66%;
+  width: 25%;
+}
+
+.footer-button__skill {
+  position: absolute;
+  right: 24%;
+  bottom: 37%;
+  background: url("../img/skills.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 30.3%;
+  height: 34%;
+  width: 14%;
+}
+
+.header {
+  padding-bottom: 11.46%;
+  width: 100%;
+  position: relative;
+}
+
+.unit-icons {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  top: 15%;
+  padding: 0 2%;
+}
+
+.unit-icons__ava {
+  background-image: url("../img/ava.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  height: 100%;
+  width: 100%;
+  width: 23%;
+  position: relative;
+  z-index: 2;
+}
+
+.unit-icons__ava::before {
+  content: "";
+  background-image: url("../img/battlefield-head-ava-bg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: block;
+  position: absolute;
+  width: 128%;
+  height: 160%;
+  top: -8%;
+  left: -17%;
+}
+
+.unit-icons__lvl {
+  position: absolute;
+  top: 121%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+  color: white;
+}
+
+.unit-icons__hp {
+  position: relative;
+  display: block;
+  background: url("../img/battlefield-head-hp-bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 72%;
+  height: 55.5%;
+  padding: 0 10% 0 0%;
+  top: 5%;
+}
+
+.unit-icons__hp-numeric {
+  position: absolute;
+  bottom: 23%;
+  left: 3%;
+  color: #e5bc00;
+}
+
+.unit-icons__hp-bar {
+  position: relative;
+  height: 41%;
+  width: 100%;
+  background-color: #8a0000;
+  top: 35%;
+  overflow: hidden;
+  -webkit-transform: skewX(-38deg);
+      -ms-transform: skewX(-38deg);
+          transform: skewX(-38deg);
+}
+
+.unit-icons__name {
+  position: absolute;
+  top: -40%;
+  left: 2%;
+  color: #5d5e5e;
+  font-size: 1.2rem;
+  width: 100%;
+}
+
+.unit-icons__item {
+  height: 100%;
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  width: 50%;
+}
+
+.unit-icons__item_enemys {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.unit-icons__item_enemys .unit-icons__hp {
+  padding: 0 0 0 10%;
+  background-position: 100%;
+}
+
+.unit-icons__item_enemys .unit-icons__hp-numeric {
+  left: auto;
+  right: 5%;
+}
+
+.unit-icons__item_enemys .unit-icons__hp-bar {
+  -webkit-transform: skewX(38deg);
+      -ms-transform: skewX(38deg);
+          transform: skewX(38deg);
+}
+
+.unit-icons__item_enemys .unit-icons__name {
+  right: 2%;
+  left: auto;
+  text-align: right;
+}
+
+.unit-icon__hp-bar {
+  position: absolute;
+  width: 115%;
+  height: 12%;
+  background-color: red;
+  -webkit-transform: rotate(-37deg);
+      -ms-transform: rotate(-37deg);
+          transform: rotate(-37deg);
+  top: 42%;
+}
+
+.unit-icon__hp-bar-wrapper {
+  position: absolute;
+  top: -40px;
+  width: 130px;
+  height: 105px;
+  left: 2px;
+  -webkit-transform: rotate(37deg);
+      -ms-transform: rotate(37deg);
+          transform: rotate(37deg);
+  background-color: blue;
+  opacity: 0.2;
+  overflow: hidden;
+}
+
+.ibg > img {
+  display: none;
+}
+
+.container {
+  max-width: 480px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+@media (max-width: 950px) {
+  html,
+  body {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 650px) {
+  html,
+  body {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 450px) {
+  html,
+  body {
+    font-size: 11px;
+  }
+
+  html,
+  body {
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 430px) {
+  .container {
+    padding: 0 10px;
+  }
+}
