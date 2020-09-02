@@ -1,10 +1,3 @@
-body {
-  margin: 0 auto;
-  max-width: 480px;
-  min-width: 128px;
-  background-color: #010000;
-}
-
 .wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -20,46 +13,25 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
   min-height: 100vh;
-  background-color: black;
-  position: relative;
+  background-color: #010000;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 .game-block {
+  max-width: 480px;
+  min-width: 320px;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   width: 100%;
-  margin: 0 auto;
   background: url("../img/cemetery.jpg");
   background-size: 146% auto;
   background-position: 50% 6%;
   position: relative;
 }
 
-.game-block:after {
-  content: "";
-  position: absolute;
-  display: block;
-  height: 6px;
-  width: 100%;
-  background: url("../img/battlefield-sep-bg.png");
-  bottom: 0;
-}
-
+.game-block:after,
 .game-block::before {
   content: "";
   position: absolute;
@@ -67,6 +39,13 @@ body {
   height: 6px;
   width: 100%;
   background: url("../img/battlefield-sep-bg.png");
+}
+
+.game-block:after {
+  bottom: 0;
+}
+
+.game-block::before {
   top: 0;
 }
 
@@ -85,7 +64,7 @@ body {
       -ms-transform: translateX(-50%);
           transform: translateX(-50%);
   color: #aeaeae;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   line-height: 1.166;
   text-align: center;
 }
@@ -137,51 +116,88 @@ body {
 .unit__attack-effect {
   display: none;
   position: absolute;
+  bottom: 15%;
+  left: -10%;
   width: 100%;
   height: 45%;
   background-repeat: no-repeat;
   background-position: 50% 100%;
   background-size: 100% auto;
-  background-image: url("../img/zombie.png");
 }
 
-.unit_yours {
+.unit__skill-effect {
+  display: none;
+  position: absolute;
+  bottom: 1%;
+  left: -8%;
+  width: 162%;
+  height: 120%;
+  background-repeat: no-repeat;
+  background-position: 50% 100%;
+  background-size: 30% auto;
+}
+
+.unit.unit_skill .unit__skill-effect {
+  display: block;
+}
+
+.unit.unit_attack .unit__attack-effect {
+  display: block;
+}
+
+.unit.unit_yours {
   top: 50%;
   left: 6%;
 }
 
-.unit_yours .unit__img {
+.unit.unit_yours .unit__img {
   background-image: url("../img/thief.png");
   background-position: 35% 2%;
 }
 
-.unit_yours .unit__target {
+.unit.unit_yours .unit__target {
   background-image: url("../img/unit-current-bg.png");
 }
 
-.unit_enemys {
+.unit.unit_enemys {
   top: 23%;
   left: 49%;
 }
 
-.unit_enemys .unit__img {
+.unit.unit_enemys .unit__img {
   background-image: url("../img/zombie.png");
 }
 
-.unit_enemys .unit__target {
+.unit.unit_enemys .unit__target {
   background-image: url("../img/unit-current-bg.png");
   bottom: 9%;
   left: 22%;
   background-position: 50% 103%;
 }
 
-.unit_enemys .unit__hp {
+.unit.unit_enemys .unit__hp {
   left: 59%;
 }
 
-.unit_enemys.unit_attack .unit__img {
-  -webkit-animation-name: attack;
-          animation-name: attack;
+.unit.unit_enemys .unit__attack-effect {
+  background-image: url("../img/zombie.png");
+}
+
+.unit.unit_enemys .unit__skill-effect {
+  background-image: url("../img/effect.png");
+}
+
+.unit.unit_enemys.unit_rage .unit__img {
+  background-image: url("../img/zombie-rage.png");
+}
+
+.unit.unit_enemys.unit_rage .unit__attack-effect {
+  background-image: url("../img/zombie-rage.png");
+}
+
+.unit.unit_enemys.unit_attack .unit__img {
+  -webkit-animation-name: zombie-attack;
+          animation-name: zombie-attack;
   -webkit-animation-duration: 600ms;
           animation-duration: 600ms;
   -webkit-animation-iteration-count: 1;
@@ -190,10 +206,9 @@ body {
           animation-timing-function: steps(1, start);
 }
 
-.unit_enemys.unit_attack .unit__attack-effect {
-  display: block;
-  -webkit-animation-name: attack-effect;
-          animation-name: attack-effect;
+.unit.unit_enemys.unit_attack .unit__attack-effect {
+  -webkit-animation-name: zombie-attack-effect;
+          animation-name: zombie-attack-effect;
   -webkit-animation-duration: 600ms;
           animation-duration: 600ms;
   -webkit-animation-iteration-count: 1;
@@ -202,7 +217,7 @@ body {
           animation-timing-function: steps(1, start);
 }
 
-@-webkit-keyframes attack {
+@-webkit-keyframes zombie-attack {
   50% {
     background-position: 50% 25%;
   }
@@ -212,7 +227,7 @@ body {
   }
 }
 
-@keyframes attack {
+@keyframes zombie-attack {
   50% {
     background-position: 50% 25%;
   }
@@ -222,7 +237,7 @@ body {
   }
 }
 
-@-webkit-keyframes attack-effect {
+@-webkit-keyframes zombie-attack-effect {
   50% {
     background-position: 50% 80%;
     bottom: 21%;
@@ -236,7 +251,7 @@ body {
   }
 }
 
-@keyframes attack-effect {
+@keyframes zombie-attack-effect {
   50% {
     background-position: 50% 80%;
     bottom: 21%;
@@ -247,5 +262,84 @@ body {
     background-position: 50% 100%;
     bottom: 15%;
     left: -10%;
+  }
+}
+
+.unit.unit_enemys.unit_skill .unit__skill-effect {
+  -webkit-animation-name: zombie-skill-effect;
+          animation-name: zombie-skill-effect;
+  -webkit-animation-duration: 1000ms;
+          animation-duration: 1000ms;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-timing-function: steps(1, start);
+          animation-timing-function: steps(1, start);
+}
+
+@-webkit-keyframes zombie-skill-effect {
+  12% {
+    background-size: 50% auto;
+  }
+
+  25% {
+    background-size: 70% auto;
+  }
+
+  38% {
+    background-size: 80% auto;
+  }
+
+  50% {
+    background-size: 110% auto;
+  }
+
+  62% {
+    background-size: 80% auto;
+  }
+
+  75% {
+    background-size: 60% auto;
+  }
+
+  88% {
+    background-size: 40% auto;
+  }
+
+  100% {
+    background-size: 30% auto;
+  }
+}
+
+@keyframes zombie-skill-effect {
+  12% {
+    background-size: 50% auto;
+  }
+
+  25% {
+    background-size: 70% auto;
+  }
+
+  38% {
+    background-size: 80% auto;
+  }
+
+  50% {
+    background-size: 110% auto;
+  }
+
+  62% {
+    background-size: 80% auto;
+  }
+
+  75% {
+    background-size: 60% auto;
+  }
+
+  88% {
+    background-size: 40% auto;
+  }
+
+  100% {
+    background-size: 30% auto;
   }
 }

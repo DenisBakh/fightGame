@@ -2,56 +2,26 @@
 @import "src/components/_common/vars.scss";
 @import "src/components/_common/mixins.scss";
 
-body {
-	margin: 0 auto;
-	max-width: 480px;
-	min-width: 128px;
-	//position: relative;
-	background-color: #010000;
-}
-
 .wrapper {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	min-height: 100vh;
-
-	background-color: black;
-	position: relative;
+	background-color: #010000;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 .game-block {
+	max-width: 480px;
+	min-width: 320px;
 	user-select: none;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-
-	//max-width: 480px;
-	//width: 480px;
 	width: 100%;
-	margin: 0 auto;
-	//height: 1000px;
-	//width: 100%;
-	//height: 674px;
-	//padding-bottom: 145%;
 	background: url("../img/cemetery.jpg");
-
 	background-size: 146% auto;
 	background-position: 50% 6%;
-
 	position: relative;
-
-	&:after {
-		content: "";
-		position: absolute;
-		display: block;
-		height: 6px;
-		width: 100%;
-		background: url("../img/battlefield-sep-bg.png");
-		bottom: 0;
-	}
+	&:after,
 	&::before {
 		content: "";
 		position: absolute;
@@ -59,6 +29,11 @@ body {
 		height: 6px;
 		width: 100%;
 		background: url("../img/battlefield-sep-bg.png");
+	}
+	&:after {
+		bottom: 0;
+	}
+	&::before {
 		top: 0;
 	}
 }
@@ -74,13 +49,15 @@ body {
 		width: 68%;
 		transform: translateX(-50%);
 		color: #aeaeae;
-		font-size: 1.2rem;
+		font-size: 1.1rem;
 		line-height: 1.166;
 		text-align: center;
 	}
 }
 
 //=====Общие стили персонажей========
+//======================================================Персонажы==========================================
+//Персонажы---общие стили
 .unit {
 	position: absolute;
 	width: 34%;
@@ -122,18 +99,43 @@ body {
 	&__attack-effect {
 		display: none;
 		position: absolute;
-
+		bottom: 15%;
+		left: -10%;
 		width: 100%;
 		height: 45%;
 		background-repeat: no-repeat;
 		background-position: 50% 100%;
 		background-size: 100% auto;
-		background-image: url("../img/zombie.png");
+	}
+	&__skill-effect {
+		display: none;
+		position: absolute;
+		bottom: 1%;
+		left: -8%;
+		width: 162%;
+		height: 120%;
+		background-repeat: no-repeat;
+		background-position: 50% 100%;
+		background-size: 30% auto;
 	}
 }
 
-//=====Персонаж игрока========
-.unit_yours {
+//Персонажы---стили активации скилла---общие стили
+.unit.unit_skill {
+	.unit__skill-effect {
+		display: block;
+	}
+}
+
+//Персонажы---стили атаки---общие стили
+.unit.unit_attack {
+	.unit__attack-effect {
+		display: block;
+	}
+}
+
+//======================================================Персонаж ассасин==========================================
+.unit.unit_yours {
 	top: 50%;
 	left: 6%;
 	.unit__img {
@@ -145,8 +147,9 @@ body {
 	}
 }
 
-//=====Персонаж врага========
-.unit_enemys {
+//======================================================Персонаж врага==========================================
+//Персонаж врага---общие стили
+.unit.unit_enemys {
 	top: 23%;
 	left: 49%;
 	.unit__img {
@@ -161,24 +164,41 @@ body {
 	.unit__hp {
 		left: 59%;
 	}
-	&.unit_attack {
-		.unit__img {
-			animation-name: attack;
-			animation-duration: 600ms;
-			animation-iteration-count: 1;
-			animation-timing-function: steps(1, start);
-		}
-		.unit__attack-effect {
-			display: block;
-			animation-name: attack-effect;
-			animation-duration: 600ms;
-			animation-iteration-count: 1;
-			animation-timing-function: steps(1, start);
-		}
+	.unit__attack-effect {
+		background-image: url("../img/zombie.png");
+	}
+	.unit__skill-effect {
+		background-image: url("../img/effect.png");
 	}
 }
 
-@keyframes attack {
+//Персонаж врага---активированная способность---общие стили
+.unit.unit_enemys.unit_rage {
+	.unit__img {
+		background-image: url("../img/zombie-rage.png");
+	}
+	.unit__attack-effect {
+		background-image: url("../img/zombie-rage.png");
+	}
+}
+
+//Персонаж врага---стили атаки
+.unit.unit_enemys.unit_attack {
+	.unit__img {
+		animation-name: zombie-attack;
+		animation-duration: 600ms;
+		animation-iteration-count: 1;
+		animation-timing-function: steps(1, start);
+	}
+	.unit__attack-effect {
+		animation-name: zombie-attack-effect;
+		animation-duration: 600ms;
+		animation-iteration-count: 1;
+		animation-timing-function: steps(1, start);
+	}
+}
+
+@keyframes zombie-attack {
 	50% {
 		background-position: 50% 25%;
 	}
@@ -186,8 +206,7 @@ body {
 		background-position: 50% 45%;
 	}
 }
-
-@keyframes attack-effect {
+@keyframes zombie-attack-effect {
 	50% {
 		background-position: 50% 80%;
 		bottom: 21%;
@@ -197,5 +216,42 @@ body {
 		background-position: 50% 100%;
 		bottom: 15%;
 		left: -10%;
+	}
+}
+
+//Персонаж врага---стили активации скилла
+.unit.unit_enemys.unit_skill {
+	.unit__skill-effect {
+		animation-name: zombie-skill-effect;
+		animation-duration: 1000ms;
+		animation-iteration-count: 1;
+		animation-timing-function: steps(1, start);
+	}
+}
+
+@keyframes zombie-skill-effect {
+	12% {
+		background-size: 50% auto;
+	}
+	25% {
+		background-size: 70% auto;
+	}
+	38% {
+		background-size: 80% auto;
+	}
+	50% {
+		background-size: 110% auto;
+	}
+	62% {
+		background-size: 80% auto;
+	}
+	75% {
+		background-size: 60% auto;
+	}
+	88% {
+		background-size: 40% auto;
+	}
+	100% {
+		background-size: 30% auto;
 	}
 }

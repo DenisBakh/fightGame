@@ -120,8 +120,19 @@ h6 {
   width: 100%;
 }
 
-.footer-button__attack {
+.footer-button__damage {
+  position: absolute;
+  top: 48%;
+  left: 47%;
+  color: white;
+  font-size: 1.3rem;
+}
+
+.footer-button__control {
   cursor: pointer;
+}
+
+.footer-button__control_attack {
   position: absolute;
   right: 0;
   background: url("../img/atack-button-bg.png");
@@ -131,13 +142,7 @@ h6 {
   width: 25%;
 }
 
-.footer-button__attack.cooldawn {
-  cursor: default;
-  background-position: 50% 102.5%;
-}
-
-.footer-button__skill {
-  cursor: pointer;
+.footer-button__control_skill {
   position: absolute;
   right: 24%;
   bottom: 37%;
@@ -147,6 +152,22 @@ h6 {
   background-position: 50% 30.3%;
   height: 34%;
   width: 14%;
+}
+
+.footer-button.cooldawn .footer-button__control {
+  cursor: default;
+}
+
+.footer-button.cooldawn .footer-button__control_attack {
+  background-position: 50% 102.5%;
+}
+
+.footer-button.cooldawn .footer-button__control_skill {
+  background-position: 50% 33.3%;
+}
+
+.footer-button.cooldawn .footer-button__damage {
+  color: grey;
 }
 
 .header {
@@ -241,7 +262,7 @@ h6 {
   top: -40%;
   left: 2%;
   color: #5d5e5e;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   width: 100%;
 }
 
@@ -321,34 +342,29 @@ h6 {
   overflow: hidden;
 }
 
-@media (max-width: 950px) {
+@media (max-width: 450px) {
   html,
   body {
     font-size: 13px;
   }
 }
 
-@media (max-width: 650px) {
-  html,
-  body {
-    font-size: 12px;
+@media (max-width: 430px) {
+  .container {
+    padding: 0 10px;
   }
 }
 
-@media (max-width: 450px) {
+@media (max-width: 400px) {
   html,
   body {
     font-size: 11px;
   }
+}
 
+@media (max-width: 350px) {
   html,
   body {
     font-size: 9px;
-  }
-}
-
-@media (max-width: 430px) {
-  .container {
-    padding: 0 10px;
   }
 }

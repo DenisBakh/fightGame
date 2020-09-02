@@ -34,16 +34,13 @@ body {
 	width: 100%;
 	line-height: 1;
 	font-size: $mainFontSize;
-	@media (max-width: 950px) {
+	@media (max-width: 450px) {
 		font-size: 13px;
 	}
-	@media (max-width: 650px) {
-		font-size: 12px;
-	}
-	@media (max-width: 450px) {
+	@media (max-width: 400px) {
 		font-size: 11px;
 	}
-	@media (max-width: 450px) {
+	@media (max-width: 350px) {
 		font-size: 9px;
 	}
 }
