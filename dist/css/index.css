@@ -490,6 +490,7 @@
 }
 
 .game-block {
+  overflow: hidden;
   max-width: 480px;
   min-width: 320px;
   -webkit-user-select: none;

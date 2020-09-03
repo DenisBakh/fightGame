@@ -1,5 +1,5 @@
 <div align="center">
-  <img width="800" height="auto" src="https://github.com/DenisBakh/productCards/blob/master/productCard.png">
+  <img width="auto" height="500px" src="https://github.com/DenisBakh/fightGame/blob/master/fightGame.png">
   <h1>productCard</h1>
   <p>
     fightGame - демо версия браузерной игры, разработанная с использованием Gulp 4.
