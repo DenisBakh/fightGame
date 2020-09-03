@@ -17,19 +17,7 @@ html(lang="ru")
 				+header()
 				main.main
 					.main__title В подземелье ты обратил на себя гнев опаcного мага... Пусть победит сильнейший!
-					.unit.unit_yours
-						.unit__img
-						.unit__target
-						.unit__hp
-							.unit__hp-remained
-					.unit.unit_enemys
-						.unit__img
-						.unit__target
-						.unit__hp
-							.unit__hp-remained
-						.unit__attack-effect
-						.unit__skill-effect
-					
+					include ../../components/blocks/units/units.pug
 				+footer()
 		
 		script(src='js/jquery.min.js')

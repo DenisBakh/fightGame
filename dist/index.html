@@ -14,24 +14,24 @@
       <div class="game-block">
         <header class="header">
           <div class="unit-icons">
-            <div class="unit-icons__item unit-icons__item_yours">
-              <div class="unit-icons__ava">
-                <div class="unit-icons__lvl">1</div>
+            <div class="unit-icon unit-icon_yours">
+              <div class="unit-icon__ava">
+                <div class="unit-icon__lvl">1</div>
               </div>
-              <div class="unit-icons__hp">
-                <div class="unit-icons__name">Lord Byron</div>
-                <div class="unit-icons__hp-bar"></div>
-                <div class="unit-icons__hp-numeric"> <span class="unit-icons__hp-remain">100</span>&nbsp;/&nbsp;<span class="unit-icons__hp-total">100</span></div>
+              <div class="unit-icon__hp">
+                <div class="unit-icon__name">Lord Byron</div>
+                <div class="unit-icon__hp-current"></div>
+                <div class="unit-icon__hp-numeric"> <span class="unit-icon__hp-current-num">100</span>&nbsp;/&nbsp;<span class="unit-icon__hp-total">100</span></div>
               </div>
             </div>
-            <div class="unit-icons__item unit-icons__item_enemys">
-              <div class="unit-icons__hp">
-                <div class="unit-icons__name">Маг Сириус</div>
-                <div class="unit-icons__hp-bar"></div>
-                <div class="unit-icons__hp-numeric"> <span class="unit-icons__hp-remain">100</span>&nbsp;/&nbsp;<span class="unit-icons__hp-total">100</span></div>
+            <div class="unit-icon unit-icon_enemys">
+              <div class="unit-icon__hp">
+                <div class="unit-icon__name">Маг Сириус</div>
+                <div class="unit-icon__hp-current"></div>
+                <div class="unit-icon__hp-numeric"> <span class="unit-icon__hp-current-num">100</span>&nbsp;/&nbsp;<span class="unit-icon__hp-total">100</span></div>
               </div>
-              <div class="unit-icons__ava">
-                <div class="unit-icons__lvl">1</div>
+              <div class="unit-icon__ava">
+                <div class="unit-icon__lvl">1</div>
               </div>
             </div>
           </div>
@@ -42,14 +42,20 @@
             <div class="unit__img"></div>
             <div class="unit__target"></div>
             <div class="unit__hp">
-              <div class="unit__hp-remained"></div>
-            </div>
+              <div class="unit__hp-wrapper">
+                <div class="unit__hp-effect"></div>
+                <div class="unit__hp-current"></div>
+              </div>
+            </div><span class="unit__event"><span class="unit__damaged"><span class="unit__hitted">-100</span><span class="unit__critted">crit!</span></span></span>
           </div>
           <div class="unit unit_enemys">
             <div class="unit__img"></div>
             <div class="unit__target"></div>
             <div class="unit__hp">
-              <div class="unit__hp-remained"></div>
+              <div class="unit__hp-wrapper">
+                <div class="unit__hp-effect"></div>
+                <div class="unit__hp-current"></div>
+              </div>
             </div>
             <div class="unit__attack-effect"></div>
             <div class="unit__skill-effect"></div>

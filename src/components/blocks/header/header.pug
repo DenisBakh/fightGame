@@ -1,25 +1,23 @@
-include submenu/submenu.pug
-
 mixin header()
 	header.header
 		.unit-icons
-			.unit-icons__item.unit-icons__item_yours
-				.unit-icons__ava
-					.unit-icons__lvl 1
-				.unit-icons__hp
-					.unit-icons__name Lord Byron
-					.unit-icons__hp-bar
-					.unit-icons__hp-numeric 
-						span.unit-icons__hp-remain 100
+			.unit-icon.unit-icon_yours
+				.unit-icon__ava
+					.unit-icon__lvl 1
+				.unit-icon__hp
+					.unit-icon__name Lord Byron
+					.unit-icon__hp-current
+					.unit-icon__hp-numeric 
+						span.unit-icon__hp-current-num 100
 						|&nbsp;/&nbsp;
-						span.unit-icons__hp-total 100
-			.unit-icons__item.unit-icons__item_enemys
-				.unit-icons__hp
-					.unit-icons__name Маг Сириус
-					.unit-icons__hp-bar
-					.unit-icons__hp-numeric 
-						span.unit-icons__hp-remain 100
+						span.unit-icon__hp-total 100
+			.unit-icon.unit-icon_enemys
+				.unit-icon__hp
+					.unit-icon__name Маг Сириус
+					.unit-icon__hp-current
+					.unit-icon__hp-numeric 
+						span.unit-icon__hp-current-num 100
 						|&nbsp;/&nbsp;
-						span.unit-icons__hp-total 100
-				.unit-icons__ava
-					.unit-icons__lvl 1
+						span.unit-icon__hp-total 100
+				.unit-icon__ava
+					.unit-icon__lvl 1

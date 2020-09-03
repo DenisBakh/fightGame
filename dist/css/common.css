@@ -190,7 +190,20 @@ h6 {
   padding: 0 2%;
 }
 
-.unit-icons__ava {
+.unit-icon {
+  height: 100%;
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  width: 50%;
+}
+
+.unit-icon__ava {
   background-image: url("../img/ava.jpg");
   background-size: cover;
   background-repeat: no-repeat;
@@ -202,7 +215,7 @@ h6 {
   z-index: 2;
 }
 
-.unit-icons__ava::before {
+.unit-icon__ava::before {
   content: "";
   background-image: url("../img/battlefield-head-ava-bg.png");
   background-size: cover;
@@ -216,7 +229,7 @@ h6 {
   left: -17%;
 }
 
-.unit-icons__lvl {
+.unit-icon__lvl {
   position: absolute;
   top: 121%;
   left: 50%;
@@ -226,7 +239,7 @@ h6 {
   color: white;
 }
 
-.unit-icons__hp {
+.unit-icon__hp {
   position: relative;
   display: block;
   background: url("../img/battlefield-head-hp-bg.png");
@@ -238,14 +251,14 @@ h6 {
   top: 5%;
 }
 
-.unit-icons__hp-numeric {
+.unit-icon__hp-numeric {
   position: absolute;
   bottom: 23%;
   left: 3%;
   color: #e5bc00;
 }
 
-.unit-icons__hp-bar {
+.unit-icon__hp-current {
   position: relative;
   height: 41%;
   width: 100%;
@@ -255,9 +268,12 @@ h6 {
   -webkit-transform: skewX(-38deg);
       -ms-transform: skewX(-38deg);
           transform: skewX(-38deg);
+  -webkit-transition: 0.4s all ease;
+  -o-transition: 0.4s all ease;
+  transition: 0.4s all ease;
 }
 
-.unit-icons__name {
+.unit-icon__name {
   position: absolute;
   top: -40%;
   left: 2%;
@@ -266,92 +282,38 @@ h6 {
   width: 100%;
 }
 
-.unit-icons__item {
-  height: 100%;
-  width: 50%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  position: relative;
-  width: 50%;
-}
-
-.unit-icons__item_enemys {
+.unit-icon.unit-icon_enemys {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
 }
 
-.unit-icons__item_enemys .unit-icons__hp {
+.unit-icon.unit-icon_enemys .unit-icon__hp {
   padding: 0 0 0 10%;
   background-position: 100%;
 }
 
-.unit-icons__item_enemys .unit-icons__hp-numeric {
+.unit-icon.unit-icon_enemys .unit-icon__hp-numeric {
   left: auto;
   right: 5%;
 }
 
-.unit-icons__item_enemys .unit-icons__hp-bar {
+.unit-icon.unit-icon_enemys .unit-icon__hp-current {
   -webkit-transform: skewX(38deg);
       -ms-transform: skewX(38deg);
           transform: skewX(38deg);
 }
 
-.unit-icons__item_enemys .unit-icons__name {
+.unit-icon.unit-icon_enemys .unit-icon__name {
   right: 2%;
   left: auto;
   text-align: right;
-}
-
-.unit-icon__hp-bar {
-  position: absolute;
-  width: 115%;
-  height: 12%;
-  background-color: red;
-  -webkit-transform: rotate(-37deg);
-      -ms-transform: rotate(-37deg);
-          transform: rotate(-37deg);
-  top: 42%;
-}
-
-.unit-icon__hp-bar-wrapper {
-  position: absolute;
-  top: -40px;
-  width: 130px;
-  height: 105px;
-  left: 2px;
-  -webkit-transform: rotate(37deg);
-      -ms-transform: rotate(37deg);
-          transform: rotate(37deg);
-  background-color: blue;
-  opacity: 0.2;
-  overflow: hidden;
-}
-
-.ibg > img {
-  display: none;
-}
-
-.container {
-  max-width: 480px;
-  margin: 0 auto;
-  overflow: hidden;
 }
 
 @media (max-width: 450px) {
   html,
   body {
     font-size: 13px;
-  }
-}
-
-@media (max-width: 430px) {
-  .container {
-    padding: 0 10px;
   }
 }
 

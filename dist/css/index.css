@@ -1,74 +1,3 @@
-.wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  min-height: 100vh;
-  background-color: #010000;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-}
-
-.game-block {
-  max-width: 480px;
-  min-width: 320px;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-  width: 100%;
-  background: url("../img/cemetery.jpg");
-  background-size: 146% auto;
-  background-position: 50% 6%;
-  position: relative;
-}
-
-.game-block:after,
-.game-block::before {
-  content: "";
-  position: absolute;
-  display: block;
-  height: 6px;
-  width: 100%;
-  background: url("../img/battlefield-sep-bg.png");
-}
-
-.game-block:after {
-  bottom: 0;
-}
-
-.game-block::before {
-  top: 0;
-}
-
-.main {
-  padding-bottom: 86%;
-  position: relative;
-  width: 100%;
-}
-
-.main__title {
-  position: absolute;
-  top: 4.5%;
-  left: 50%;
-  width: 68%;
-  -webkit-transform: translateX(-50%);
-      -ms-transform: translateX(-50%);
-          transform: translateX(-50%);
-  color: #aeaeae;
-  font-size: 1.1rem;
-  line-height: 1.166;
-  text-align: center;
-}
-
 .unit {
   position: absolute;
   width: 34%;
@@ -104,13 +33,36 @@
   background-color: black;
   bottom: 15%;
   left: 30%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
 }
 
-.unit__hp-remained {
+.unit__hp-wrapper {
   width: 100%;
   height: 100%;
+  position: relative;
   border: 1px solid black;
+  overflow: hidden;
+}
+
+.unit__hp-current {
+  position: absolute;
+  width: 100%;
+  height: 100%;
   background-color: #0d8900;
+}
+
+.unit__hp-effect {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: red;
+  -webkit-transition: 0.4s all ease;
+  -o-transition: 0.4s all ease;
+  transition: 0.4s all ease;
 }
 
 .unit__attack-effect {
@@ -137,12 +89,178 @@
   background-size: 30% auto;
 }
 
+.unit__damaged {
+  color: red;
+}
+
+.unit__hitted {
+  position: absolute;
+  left: 50%;
+  top: 15%;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+  font-size: 1.5rem;
+  font-style: italic;
+  -webkit-transition: 0.4s all ease;
+  -o-transition: 0.4s all ease;
+  transition: 0.4s all ease;
+  opacity: 0;
+}
+
+.unit__critted {
+  opacity: 0;
+  position: absolute;
+  top: -10%;
+  left: 70%;
+  font-size: 1.5em;
+  font-weight: 700;
+  text-decoration: underline;
+  -webkit-transform: scale(3);
+      -ms-transform: scale(3);
+          transform: scale(3);
+  -webkit-transition: 0.4s all ease;
+  -o-transition: 0.4s all ease;
+  transition: 0.4s all ease;
+}
+
+.unit_damaged .unit__hitted {
+  -webkit-animation-name: unit-event-damaged;
+          animation-name: unit-event-damaged;
+  -webkit-animation-duration: 400ms;
+          animation-duration: 400ms;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+}
+
+.unit_damaged.unit_critted .unit__critted {
+  -webkit-animation-name: unit-event-critted;
+          animation-name: unit-event-critted;
+  -webkit-animation-duration: 300ms;
+          animation-duration: 300ms;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+}
+
+@-webkit-keyframes unit-event-damaged {
+  50% {
+    top: 5%;
+    opacity: 0.5;
+  }
+
+  90% {
+    top: -5%;
+    opacity: 1;
+  }
+
+  100% {
+    top: -5%;
+    opacity: 0;
+  }
+}
+
+@keyframes unit-event-damaged {
+  50% {
+    top: 5%;
+    opacity: 0.5;
+  }
+
+  90% {
+    top: -5%;
+    opacity: 1;
+  }
+
+  100% {
+    top: -5%;
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes unit-event-critted {
+  30% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+
+  45% {
+    -webkit-transform: scale(1) rotate(-10deg);
+            transform: scale(1) rotate(-10deg);
+  }
+
+  60% {
+    -webkit-transform: scale(1) rotate(10deg);
+            transform: scale(1) rotate(10deg);
+  }
+
+  80% {
+    -webkit-transform: scale(1) rotate(-10deg);
+            transform: scale(1) rotate(-10deg);
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes unit-event-critted {
+  30% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+
+  45% {
+    -webkit-transform: scale(1) rotate(-10deg);
+            transform: scale(1) rotate(-10deg);
+  }
+
+  60% {
+    -webkit-transform: scale(1) rotate(10deg);
+            transform: scale(1) rotate(10deg);
+  }
+
+  80% {
+    -webkit-transform: scale(1) rotate(-10deg);
+            transform: scale(1) rotate(-10deg);
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
 .unit.unit_skill .unit__skill-effect {
   display: block;
 }
 
 .unit.unit_attack .unit__attack-effect {
   display: block;
+}
+
+.unit.unit_dead {
+  opacity: 0;
+  -webkit-transition: opacity 0.3s linear 0.3s;
+  -o-transition: opacity 0.3s linear 0.3s;
+  transition: opacity 0.3s linear 0.3s;
+}
+
+.unit.unit_dead .unit__img {
+  -webkit-transform: rotate(-90deg);
+      -ms-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+  -webkit-transform-origin: 30% 60%;
+      -ms-transform-origin: 30% 60%;
+          transform-origin: 30% 60%;
+  -webkit-transition: -webkit-transform 0.3s linear;
+  transition: -webkit-transform 0.3s linear;
+  -o-transition: transform 0.3s linear;
+  transition: transform 0.3s linear;
+  transition: transform 0.3s linear, -webkit-transform 0.3s linear;
 }
 
 .unit.unit_yours {
@@ -218,22 +336,30 @@
 }
 
 @-webkit-keyframes zombie-attack {
-  50% {
+  33% {
     background-position: 50% 25%;
   }
 
-  100% {
+  67% {
     background-position: 50% 45%;
+  }
+
+  100% {
+    background-position: 40% 63.3%;
   }
 }
 
 @keyframes zombie-attack {
-  50% {
+  33% {
     background-position: 50% 25%;
   }
 
-  100% {
+  67% {
     background-position: 50% 45%;
+  }
+
+  100% {
+    background-position: 40% 63.3%;
   }
 }
 
@@ -342,4 +468,75 @@
   100% {
     background-size: 30% auto;
   }
+}
+
+.wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  min-height: 100vh;
+  background-color: #010000;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.game-block {
+  max-width: 480px;
+  min-width: 320px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  width: 100%;
+  background: url("../img/cemetery.jpg");
+  background-size: 146% auto;
+  background-position: 50% 6%;
+  position: relative;
+}
+
+.game-block:after,
+.game-block::before {
+  content: "";
+  position: absolute;
+  display: block;
+  height: 6px;
+  width: 100%;
+  background: url("../img/battlefield-sep-bg.png");
+}
+
+.game-block:after {
+  bottom: 0;
+}
+
+.game-block::before {
+  top: 0;
+}
+
+.main {
+  padding-bottom: 86%;
+  position: relative;
+  width: 100%;
+}
+
+.main__title {
+  position: absolute;
+  top: 4.5%;
+  left: 50%;
+  width: 68%;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+  color: #aeaeae;
+  font-size: 1.1rem;
+  line-height: 1.166;
+  text-align: center;
 }
