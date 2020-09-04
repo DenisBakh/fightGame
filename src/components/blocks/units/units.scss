@@ -29,8 +29,8 @@
 		height: 5%;
 		border: 1px solid #0d8900;
 		background-color: black;
-		bottom: 15%;
-		left: 30%;
+		bottom: 20%;
+		left: 29%;
 		display: flex;
 		position: relative;
 	}
@@ -96,12 +96,10 @@
 		position: absolute;
 		top: -10%;
 		left: 70%;
-		//transform: rotate(-11deg);
 		font-size: 1.5em;
 		font-weight: 700;
 		text-decoration: underline;
 		transform: scale(3);
-		@include transition;
 	}
 }
 
@@ -118,7 +116,7 @@
 .unit_damaged.unit_critted {
 	.unit__critted {
 		animation-name: unit-event-critted;
-		animation-duration: 300ms;
+		animation-duration: 500ms;
 		animation-iteration-count: 1;
 		animation-timing-function: linear;
 	}
@@ -154,7 +152,7 @@
 		transform: scale(1) rotate(-10deg);
 	}
 	100% {
-		opacity: 0;
+		transform: scale(1) rotate(10deg);
 	}
 }
 

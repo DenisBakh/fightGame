@@ -23,6 +23,7 @@ $(document).ready(function ($) {
 			$controlBtn.removeClass('cooldawn');
 		}, 600)
 
+		// функция нанесения урона
 		doDamage();
 	});
 
@@ -79,6 +80,7 @@ $(document).ready(function ($) {
 		const $ELEM_UNIT_ASSASIN_HP_CURRENT = $ELEM_UNIT_ASSASIN.find('.unit__hp-current');
 		const $ELEM_UNIT_ASSASIN_HP_EFFECT = $ELEM_UNIT_ASSASIN.find('.unit__hp-effect');
 
+		//Расчет урона
 		const $VAL_UNIT_ZOMBIE_IN_RAGE = $ELEM_UNIT_ZOMBIE.hasClass('unit_rage') ? true : false;
 		const $VAL_DAMAGE = 20;
 		const $VAL_DAMAGE_CRIT_MODIFICATOR = 1.5;
@@ -90,10 +92,10 @@ $(document).ready(function ($) {
 		const $VAL_DAMAGE_DONE = Math.floor(randomInteger($VAL_DAMAGE_MIN, $VAL_DAMAGE_MAX) * ($VAL_IS_CRIT ? $VAL_DAMAGE_CRIT_MODIFICATOR : 1));
 		const $VAL_DAMAGE_DONE_PERCENT = $VAL_DAMAGE_DONE / $VAL_UNIT_ASSASIN_ICON_HP_TOTAL;
 
+		//Новое количество жизней в % после нанесения урона
 		const $VAL_UNIT_ASSASIN_ICON_HP_CURRENT_PERCENT_NEW = Math.max($VAL_UNIT_ASSASIN_ICON_HP_CURRENT_PERCENT - $VAL_DAMAGE_DONE_PERCENT, 0)
 
 		$ELEM_UNIT_ASSASIN_HP_CURRENT.css('width', ($VAL_UNIT_ASSASIN_ICON_HP_CURRENT_PERCENT_NEW) * 100 + '%')
-
 		setTimeout(function () {
 			$ELEM_UNIT_ASSASIN_HP_EFFECT.css('width', ($VAL_UNIT_ASSASIN_ICON_HP_CURRENT_PERCENT_NEW) * 100 + '%')
 		}, 200)
@@ -105,14 +107,12 @@ $(document).ready(function ($) {
 		$ELEM_UNIT_ASSASIN_ICON_HP.css('width', ($VAL_UNIT_ASSASIN_ICON_HP_CURRENT_PERCENT_NEW) * 100 + '%')
 		$ELEM_UNIT_ASSASIN_ICON_HP_CURRENT.text(Math.floor($VAL_UNIT_ASSASIN_ICON_HP_CURRENT_PERCENT_NEW * $VAL_UNIT_ASSASIN_ICON_HP_TOTAL));
 
-
-
+		// Отображение урона
 		$ELEM_UNIT_ASSASIN_HITTED.text('-' + $VAL_DAMAGE_DONE);
 		$ELEM_UNIT_ASSASIN.addClass('unit_damaged');
 		if ($VAL_IS_CRIT) {
 			$ELEM_UNIT_ASSASIN.addClass('unit_critted');
 		}
-
 		setTimeout(function () {
 			$ELEM_UNIT_ASSASIN.removeClass('unit_damaged');
 			$ELEM_UNIT_ASSASIN.removeClass('unit_critted');
