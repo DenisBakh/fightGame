@@ -69,14 +69,15 @@
 	}
 	&__skill-effect {
 		display: none;
+		opacity: 0;
 		position: absolute;
 		bottom: 1%;
 		left: -8%;
 		width: 162%;
 		height: 120%;
 		background-repeat: no-repeat;
-		background-position: 50% 100%;
-		background-size: 30% auto;
+		background-position: 50% 94%;
+		background-size: 70% 90.3%;
 	}
 	&__damaged {
 		color: red;
@@ -215,7 +216,7 @@
 		background-image: url("../img/zombie.png");
 	}
 	.unit__skill-effect {
-		background-image: url("../img/effect.png");
+		background-image: url("../img/effect-rage.png");
 	}
 }
 
@@ -275,33 +276,17 @@
 		animation-name: zombie-skill-effect;
 		animation-duration: 1000ms;
 		animation-iteration-count: 1;
-		animation-timing-function: steps(1, start);
+		animation-timing-function: linear;
 	}
 }
 
 @keyframes zombie-skill-effect {
-	12% {
-		background-size: 50% auto;
-	}
-	25% {
-		background-size: 70% auto;
-	}
-	38% {
-		background-size: 80% auto;
-	}
-	50% {
-		background-size: 110% auto;
-	}
-	62% {
-		background-size: 80% auto;
-	}
-	75% {
-		background-size: 60% auto;
-	}
-	88% {
-		background-size: 40% auto;
+	0% {
+		background-size: 70% 52.3%;
+		opacity: 1;
 	}
 	100% {
-		background-size: 30% auto;
+		background-size: 70% 90.3%;
+		opacity: 0;
 	}
 }
