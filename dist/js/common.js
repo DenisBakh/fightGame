@@ -52,7 +52,7 @@ $(document).ready(function ($) {
 		//Таймер на активацию скилла
 		setTimeout(function () {
 			$unit.addClass('unit_rage');// Меняем зомби на зомби-rage
-		}, $coolDawn / 2)
+		}, $coolDawn / 3)
 
 		//Таймер на снятие кулдауна
 		setTimeout(function () {
